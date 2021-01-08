@@ -1,0 +1,125 @@
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.content {
+	 width: 100%;
+}
+
+.layout-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  margin: 0;
+  border-top: 1px solid #eeeeee;
+  transition: all 0.5s;
+}
+
+.center-footer{
+  font-size: 92%;
+  display: block;
+  color: #777777;
+  line-height: 4;
+  text-align: center;
+}
+
+#sidebar {
+    min-width: 150px;
+    max-width: 150px;
+    min-height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -150px;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+}
+
+.a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.navbar-brand {
+	margin-right: 30px;
+}
+.bars {
+	margin-top: 8px;
+}
+
+.icons{
+	margin-right: 30px;
+	color: #dee2e6;
+}
+.layout-page {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 60px;
+}
+
+.layout-content {
+  position: relative;
+  margin: 0;
+  margin-top: 50px;
+  transition: all 0.5s;
+}
+
+.card-default {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+}
+
+.alert {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.checkbox-label{
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
+.dropdown{
+	margin-top: 7px;
+}
+
+.has-error {
+  background-color: #ffdddd;
+  border-color: #800000;
+}
+
+.logo {
+	width: 50;
+	height: 50;
+}
+
+.required > .control-label:after {
+	content: "*";
+}
+
+.checkbox input[type="checkbox"]:checked + input + label::after {
+    font-family: 'FontAwesome';
+    content: "\f00c"; 
+}
+.btn-link{
+	margin-top: -20px;
+}

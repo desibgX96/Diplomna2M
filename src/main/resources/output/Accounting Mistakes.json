@@ -1,0 +1,71 @@
+[
+  {
+    "id": 10,
+    "accHeaderId": {
+      "id": 438.0,
+      "firm": 1,
+      "journalNumber": 663.0,
+      "period": {},
+      "docType": 2,
+      "docNr": "0300000022",
+      "docDate": {},
+      "operationKind": 0,
+      "status": 0,
+      "textOFEntry": "",
+      "refNr": "1356",
+      "refName": "АЛХАТ ЕООД",
+      "createdOn": {}
+    },
+    "line": 2,
+    "debit": "4111",
+    "credit": "4531",
+    "amount": 6.99,
+    "textOfEntry": "ДДС при продажба"
+  },
+  {
+    "id": 14,
+    "accHeaderId": {
+      "id": 37.0,
+      "firm": 1,
+      "journalNumber": 414.0,
+      "period": {},
+      "docType": 6,
+      "docNr": "0000005420",
+      "docDate": {},
+      "operationKind": 0,
+      "status": 0,
+      "textOFEntry": "",
+      "refNr": "6004",
+      "refName": "Генара ООД",
+      "createdOn": {}
+    },
+    "line": 2,
+    "debit": "4011",
+    "credit": "4531",
+    "amount": 2148.00,
+    "textOfEntry": "ДДС на покупките"
+  },
+  {
+    "id": 16,
+    "accHeaderId": {
+      "id": 38.0,
+      "firm": 1,
+      "journalNumber": 415.0,
+      "period": {},
+      "docType": 2,
+      "docNr": "0200000004",
+      "docDate": {},
+      "operationKind": 0,
+      "status": 0,
+      "textOFEntry": "",
+      "refNr": "2655",
+      "refName": "Дерматологична Клиника София - ГПСИ",
+      "createdOn": {}
+    },
+    "line": 2,
+    "debit": "4111",
+    "credit": "4531",
+    "amount": 10.00,
+    "textOfEntry": "ДДС при продажба"
+  }
+]

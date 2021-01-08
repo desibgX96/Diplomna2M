@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.7.2/css/all.css}" />
+    <!-- project css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-switch.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datepicker.standalone.min.css}" />
+	<link rel="shortcut icon" th:href="@{/img/favicon.ico}" />
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<title>Insert title here</title>
+	
+</head>
+<body>
+
+<div th:include = "top-navbar::top-navbar"></div>
+	<section layout:fragment="content"> </section>
+	
+<div class="card-footer d-flex justify-content-center">
+      <small class="text-muted" th:text="#{foot.text}">Creator:Desislava Xadjivelikova Year:2021</small>
+    </div>
+
+	<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.bg.min.js}"></script>
+	<script th:src="@{/js/jquery.maskMoney.min.js}"></script>
+	<script th:src="@{/js/internationalization.js}"></script>
+</body>
+</html>

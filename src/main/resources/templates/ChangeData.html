@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="Layout.html">
+	
+<head>
+    <meta charset="UTF-8">
+	<title>Chanege Data</title>
+	<!-- vendors css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.7.2/css/all.css}" />
+    <!-- project css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-switch.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datepicker.standalone.min.css}" />
+	<link rel="shortcut icon" th:href="@{/img/favicon.ico}" />
+</head>
+<section layout:fragment="content">
+	<div class="card card-header ">
+		<div class="container-fluid">
+			<h1 th:text="#{chd.title}">Промяна на информациятя</h1>
+		</div>
+	</div>
+	<div class="card card-body container-fluid">
+		<form method="POST" th:object="${detail}">
+		
+		<div class="row">
+				<div class="form-group  col-sm-2">
+					<label for="line" class="control-label" th:text="#{sp.line}">line</label> 
+					<input type="text" class="form-control" id="line" th:field="*{line}"/>
+			</div>
+				<div class="form-group col-sm-3">
+					<label for="debit" class="control-label" th:text="#{sp.debit}">Debit</label> 
+					<input type="text" class="form-control" id="debit" th:field="*{debit}" />
+				</div>
+				<div class="form-group col-sm-3">
+					<label for="credit" class="control-label" th:text="#{sp.credit}">Credit</label> 
+					<input type="text" class="form-control" id="credit" th:field="*{credit}"/>
+				</div>
+				<div class="form-group col-sm-5">
+					<label for="textOfEntry" class="control-label" th:text="#{sp.textofE}">textOfEntry</label> 
+					<input type="text" class="form-control" id="textOfEntry" th:field="*{textOfEntry}"/>
+				</div>
+				<div class="form-group  col-sm-3">
+					<label for="changedOn" class="control-label" th:text="#{chd.changedon}">ChangedOn</label> 
+					<input type="text" class="form-control js-date" id="changedOn" th:field="*{changedOn}"
+					data-provide="datepicker" data-date-format="dd.mm.yyyy" data-date-language="bg"
+					data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="top"/>
+				
+				</div>
+					<div class="form-group col-sm-5">
+					<label for="JournalNumber" class="control-label" th:text="#{sp.jn}">JournalNumber</label> 
+					<input type="text" class="form-control" id="JournalNumber" th:field="*{accHeaderId.journalNumber}"/>
+				</div>
+				<div class="form-group  col-sm-3">
+					<label for="Period" class="control-label" th:text="#{sp.period}">Period</label> 
+					<input type="text" class="form-control js-date" id="Period" th:field="*{accHeaderId.period}"
+					data-provide="datepicker" data-date-format="dd.mm.yyyy" data-date-language="bg"
+					data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="top"/>
+				</div>
+					</div>
+					<div class="form-group col-sm-5">
+					<label for="RefName" class="control-label" th:text="#{sp.refn}">RefName</label> 
+					<input type="text" class="form-control" id="RefName" th:field="*{accHeaderId.refName}"/>
+				</div>
+				
+				<button type="submit" class="btn btn-primary" th:text="#{chd.change}">Change</button>
+		</form>
+		</div>
+		
+		
+	<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
+	
+	<script th:src="@{/js/bootstrap-switch.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.bg.min.js}"></script>
+</section>
+</html>

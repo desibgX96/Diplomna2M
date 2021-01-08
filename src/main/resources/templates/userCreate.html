@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="Layout.html">
+	
+<head>
+    <meta charset="UTF-8">
+	<title>Create user</title>
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script th:src="@{/js/internationalization.js}"></script>
+</head>
+<section layout:fragment="content">
+	<div class="card card-header ">
+		<div class="container-fluid">
+			<h1 th:text="#{uc.title}">Регистрация на потребител</h1>
+		</div>
+	</div>
+	<div class="card card-body container-fluid">
+	<form method="GET" th:object="${userInfo}">
+			<div class="alert alert-danger" th:if="${!#strings.isEmpty(message)}">
+    		<span th:text="#{uc.message}"></span>
+		</div>
+		<div class="alert alert-success" th:if="${!#strings.isEmpty(messageY)}">
+    		<span th:text="#{uc.messageY}"></span>
+		</div>
+		<div class="row">
+		<div class="form-group  col-sm-2">
+			<label for="userName" class="control-label" th:text="#{uc.name}">Име</label> 
+					<input type="text" class="form-control" id="userName" name="userName">
+					<div class="alert alert-danger" th:if="${mistakes.mistake1}">
+					<label for="userName" class="control-label" th:text="#{uc.name.mistake}"></label> 
+					</div>
+		</div>
+		
+		<div class="form-group col-sm-3">
+					<label for="email" class="control-label" th:text="#{uc.mail}">Емайл</label> 
+					<input type="text" class="form-control" id="email" name="email"/>
+					<div class="alert alert-danger" th:if="${mistakes.mistake2}">
+					<label for="email" class="control-label" th:text="#{uc.email.mistake}"></label> 
+					</div>
+				</div>
+				
+		<div class="form-group  col-sm-3">
+					<label for="dob" class="control-label" th:text="#{uc.datebirth}">Рожденна дата</label> 
+					<input type="text" class="form-control js-date" id="dob" name="dob"
+					data-provide="datepicker" data-date-format="dd.mm.yyyy" data-date-language="bg"
+					data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="top"
+						autocomplete="off"/>
+						<div class="alert alert-danger" th:if="${mistakes.mistake3}">
+					<label for="dob" class="control-label" th:text="#{uc.datebirth.mistake}"></label> 
+					</div>
+				</div>
+				<div class="form-group  col-sm-3">
+					<label class="control-label" th:text="#{uc.status}">Статус</label>
+					<div>
+						<input type="checkbox"  class="custom-control-input" data-size="small" name="active" data-off="checked"
+							data-off-color="danger" th:data-on-text="#{uc.active}" th:data-off-text="#{uc.inactive}" />
+					</div>
+				</div>
+				<div class="form-group  col-sm-3" >
+					<label for="password" class="control-label" th:text="#{uc.password}">Парола</label> 
+					<input type="password" class="form-control" id="password" name="password"/>
+					<div class="alert alert-danger" th:if="${mistakes.mistake4}">
+					<label for="password" class="control-label" th:text="#{uc.password.mistake}"></label> 
+					</div>
+				</div>
+
+				<div class="form-group  col-sm-3">
+					<label for="passwordconfirmation" class="control-label"th:text="#{uc.password2}">Подтвърдете парола</label> 
+					<input type="password" autocomplete="section-blue new-password cc-csc" class="form-control"	
+					    id="passwordConfirmation" name="passwordConfirmation"/>
+					    <div class="alert alert-danger" th:if="${mistakes.mistake5}">
+					<label for="passwordconfirmation" class="control-label" th:text="#{uc.passwordconfirmation.mistake}"></label> 
+					</div>
+				</div>
+<div class="form-group col-sm-2">
+					<label for="roles" class="control-label" th:text="#{uc.role}">Роли</label>
+					<div class="form-group">
+						<th:block th:each="role : ${roles}">
+							<div class="checkbox checkbox-inline"> 
+		    					<input type="checkbox" th:value="${role.code}" th:field="*{roles}"/>
+		    					<label th:for="${#ids.prev('roles')}" th:text="${role.name}"></label>
+		    				</div>
+		    			</th:block>
+					</div>
+					<div class="alert alert-danger" th:if="${mistakes.mistake6}">
+					<label for="roles" class="control-label" th:text="#{uc.roles.mistake}"></label> 
+					</div>
+				</div>
+							</div>
+			<button type="submit" name="action" value="Data extraction" class="btn btn-primary" th:text="#{uc.save}">Запиши</button>
+		</form>
+
+</div>
+	<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
+	
+	<script th:src="@{/js/bootstrap-switch.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.bg.min.js}"></script>
+	<script>$("[name='active']").bootstrapSwitch();</script>
+	<!-- <script th:src="@{/js/login.js}"></script> -->
+	<script>$('.js-status').bootstrapSwitch();</script>
+	
+</section>
+</html>

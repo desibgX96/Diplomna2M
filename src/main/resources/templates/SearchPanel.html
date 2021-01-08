@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="Layout.html">
+
+<section layout:fragment="content" style="background-color: #ecdfec;">
+	<div class="card card-header ">
+		<div class="container-fluid" style="text-align: center">
+			<h1 th:text="#{sp.title}">Полета за търсене</h1>
+		</div>
+	</div>
+	<div class="card card-default" style="margin: 10px">
+		<div class="card-body ">
+			<form method="GET" th:object="${vzemi}">
+				<div class="row" >
+					<div class="input-group mb-3 justify-content-center">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<span><input type="checkbox" id="mistake1" name="mistake1"> </span>
+							</div>
+						</div>
+						<label class="checkbox-label" for="mistake1" th:text="#{sp.mistake1}"><h6>MistakenEntrys</h6></label>
+
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="checkbox" id="mistake2" name="mistake2">
+							</div>
+						</div>
+						<label class="checkbox-label" for="defaultCheck2" th:text="#{sp.mistake2}"><h6>MistakenSales</h6></label>
+
+					<div class="input-group-prepend">
+						<div class="input-group-text">
+							<input type="checkbox" id="mistake3" name="mistake3">
+						</div>
+					</div>
+					<label class="checkbox-label" for="defaultCheck3" th:text="#{sp.mistake3}"><h6>MistakeInCostAccounts</h6></label>
+				</div>
+				<div class="input-group mb-3 justify-content-center">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<input type="checkbox" id="mistake4" name="mistake4">
+					</div>
+				</div>
+				<label class="checkbox-label" for="defaultCheck4" th:text="#{sp.mistake4}"><h6>MistakeInUnitCosts</h6></label>
+
+		<div class="input-group-prepend">
+			<div class="input-group-text">
+				<input type="checkbox" id="mistake5" name="mistake5">
+			</div>
+		</div>
+		<label class="checkbox-label" for="defaultCheck5" th:text="#{sp.mistake5}"><h6>MistakeInExpensesMaterialAccounts</h6></label>
+
+	<div class="input-group-prepend">
+		<div class="input-group-text">
+			<input type="checkbox" id="mistake6" name="mistake6">
+		</div>
+	</div>
+	<label class="checkbox-label" for="defaultCheck6" th:text="#{sp.mistake6}"><h6>MistakeInSaleAccount</h6></label>
+	</div>
+
+	</div>
+
+	<div class="row justify-content-center">
+		<div class="form-group  col-sm-2">
+			<label for="debit" class="form-check-label" th:text="#{sp.debit}">Debit:</label> <input
+				type="text" name="debit" id="debit" class="form-control">
+		</div>
+		<div class="form-group  col-sm-2">
+			<label for="credit" class="form-check-label" th:text="#{sp.credit}">Credit:</label> <input
+				type="text" name="credit" id="credit" class="form-control">
+		</div>
+
+		<div class="form-group  col-sm-2">
+			<label class="control-label" th:text="#{sp.from}">From:</label> <input type="text"
+				class="form-control js-date" id="from" name="from"
+				data-provide="datepicker" data-date-format="dd.mm.yyyy"
+				data-date-language="bg" data-date-autoclose="true"
+				data-date-today-highlight="true" data-date-orientation="bottom"
+				autocomplete="off" />
+		</div>
+		<div class="form-group  col-sm-2">
+			<label class="control-label" th:text="#{sp.to}">To:</label> 
+			<input type="text"
+				class="form-control js-date" id="to" name="to"
+				data-provide="datepicker" data-date-format="dd.mm.yyyy"
+				data-date-language="bg" data-date-autoclose="true"
+				data-date-today-highlight="true" data-date-orientation="bottom"
+				autocomplete="off" />
+		</div>
+
+	</div>
+		<div class="row justify-content-center">
+	<button class="btn btn-outline-dark" type="submit" name="action"
+		value="Data extraction" th:text="#{sp.extract}">Extract</button>
+	<button class="btn btn-outline-secondary" type="submit" name="action"
+		value="SaveXML" th:text="#{sp.saveXML}">Save XML</button>
+	<button class="btn btn-outline-secondary" type="submit" name="action"
+		value="UploadXML" th:text="#{sp.uploadXML}">Upload XML</button>
+	<button class="btn btn-outline-info" type="submit" name="action"
+		value="SaveJ" th:text="#{sp.saveJ}">Save Json</button>
+			<button class="btn btn-outline-info" type="submit" name="action"
+		value="UploadJ" th:text="#{sp.uploadJ}">Upload Json</button>
+			<button class="btn btn-outline-info" type="submit" name="action"
+		value="SaveE" th:text="#{sp.saveE}">Save Excel</button>
+	</div>
+	</form>
+
+<table class="table" style="border-collapse: collapse; border: none;">
+		<thead>
+			<tr style="border: none;">
+				<th scope="col" class="text-center" th:text="#{sp.bill}" style="border: none;">Bill</th>
+				<th scope="col" th:text="#{uc.name}" style="border: none;">Name</th>
+				</tr>
+		</thead>
+		<tbody>
+			<tr th:each="bill:${bills}" style="border: none;">
+				<td class="text-center" style="border: none;" th:text="${bill.bill}"></td>
+				<td class="text-left" style="border: none;" th:text="${bill.name}"></td>
+				</tr>
+				</tbody>
+	</table>
+
+ 	<table class="table table-hover table-bordered">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col" th:text="#{sp.id}">Id</th>
+				<th scope="col" th:text="#{sp.line}">Line</th>
+				<th scope="col" th:text="#{sp.debit}">Debit</th>
+				<th scope="col" th:text="#{sp.credit}">Credit</th>
+				<th scope="col" th:text="#{sp.amount}">Amount</th>
+				<th scope="col" th:text="#{sp.textofE}">TextOfEntry</th>
+				<th scope="col" th:text="#{sp.idH}">AccHeaderId</th>
+				<th scope="col" th:text="#{sp.jn}">JournalNumber</th>
+				<th scope="col" th:text="#{sp.period}">Period</th>
+				<th scope="col" th:text="#{sp.docn}">DocNr</th>
+				<th scope="col" th:text="#{sp.docd}">DocDate</th>
+				<th scope="col" th:text="#{sp.refn}">RefName</th>
+				<th scope="col" th:text="#{sp.option}">Options</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="detail:${details}">
+				<td class="text-center" id="id" name="id" th:text="${detail.id}"></td>
+				<td class="text-center" th:text="${detail.line}"></td>
+				<td th:text="${detail.debit}"></td>
+				<td class="text-center" th:text="${{detail.credit}}"></td>
+				<td class="text-right" th:text="|${{detail.amount}} лв.|"></td>
+				<td class="text-center" th:text="${detail.textOfEntry}"></td>
+				<td class="text-right" th:text="${detail.accHeaderId.id}"></td>
+				<td class="text-right" th:text="${detail.accHeaderId.journalNumber}"></td>
+				<td class="text-center" th:text="${detail.accHeaderId.period}"></td>
+				<td class="text-center" th:text="${detail.accHeaderId.docNr}"></td>
+				<td class="text-center" th:text="${detail.accHeaderId.docDate}"></td>
+				<td class="text-right" th:text="${detail.accHeaderId.refName}"></td>
+				<td class="text-center">
+			<div th:if="${access == null}">
+				<a
+					class="btn  btn-link  btn-xs  js-tooltip" title="Промени"
+					th:href="@{/details/{id}(id=${ detail.id})}"> 
+					<i class="far fa-edit"></i>
+				</a> <a class="btn btn-link btn-xs  js-tooltip" title="Изтрий"
+					th:href="@{/detailsBad/{id}(id=${ detail.id})}"> 
+					<i class="fas fa-trash-alt"></i>
+<!-- 					<i class="glyphicon glyphicon-remove"></i> -->
+				</a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" th:if="${#lists.isEmpty(details)}" th:text="#{sp.empty}">Няма
+					намерени плащания</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+	</div>
+	<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
+
+	<script th:src="@{/js/bootstrap-switch.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.bg.min.js}"></script>
+</section>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:spring ="http://www.springframework.org/tags/form" >
+	
+	
+<head>
+    <meta charset="UTF-8">
+	<title>Login</title>
+	<!-- vendors css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.7.2/css/all.css}" />
+    <!-- project css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-switch.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datepicker.standalone.min.css}" />
+	<link rel="shortcut icon" th:href="@{/img/favicon.ico}" />
+</head>
+<body style="background-color:powderblue">
+<div style="float:right;">
+<br>
+<span th:text="#{lang.change}"></span>:
+<select id="locales">
+    <option value=""></option>
+    <option value="en" th:text="#{lang.eng}"></option>
+    <option value="fr" th:text="#{lang.fr}"></option>
+    <option value="bg" th:text="#{lang.bg}"></option>
+</select>
+</div>
+    <div id="login">
+        <h3 class="text-center text-white pt-5" th:text="#{label.title}" ></h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" method="POST" th:object="${potentialUser}">
+                            <div class="form-group">
+<!--raboti no ne mi triabva      <strong th:utext="#{label.userName}"></strong> -->
+<!--                                  <strong> -->
+<!--                 					<spring:message code="label.userName" /> -->
+<!--                 				 </strong> -->
+                                <label for="userName" class="control-label" th:text="#{label.userName}" ></label> 
+ 				 				<input type="text" class="form-control" id="userName" name="userName"/>
+                             </div>
+                             <div class="form-group">
+                                 <label for="password" class="control-label"th:text="#{label.password}" ></label>
+ 								<input type="password" class="form-control" id="password" name="password"/>
+                             </div>
+                             <div class="form-group">
+                                 <br>
+                                 <button type="submit" value="Data extraction"  th:text="#{label.submit}"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+	<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
+	
+	<script th:src="@{/js/bootstrap-switch.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.bg.min.js}"></script>
+	<script>$("[name='active']").bootstrapSwitch();</script>
+	<!-- <script th:src="@{/js/login.js}"></script> -->
+	<script>$('.js-status').bootstrapSwitch();</script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script th:src="@{/js/internationalization.js}"></script>
+	
+</body>
+</html>
